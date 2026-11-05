@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<!-- filepath: c:\Users\chsre\OneDrive\Documents\Desktop\html\music website\indexx.html -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sree Sangeeth Sampradaya</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold: #e8ad4b;
+      --cream: #fff8e9;
+      --dark: #170d09;
+      --text: #dfccb3;
+      --glass: rgba(20, 10, 7, .85);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      color: var(--cream);
+      font-family: "DM Sans", sans-serif;
+      background: var(--dark);
+    }
+
+    h1, h2, h3 {
+      font-family: "Playfair Display", serif;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 8vw, 7rem);
+      line-height: 1;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      font-size: clamp(2.4rem, 6vw, 5rem);
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      color: var(--gold);
+    }
+
+    p {
+      max-width: 850px;
+      margin-bottom: 16px;
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      z-index: 10;
+      width: 100%;
+      padding: 17px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(20, 9, 5, .94);
+      backdrop-filter: blur(12px);
+    }
+
+    .logo {
+      color: var(--gold);
+      font: 800 1.4rem "Playfair Display";
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: white;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 18px;
+      list-style: none;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      transition: .3s;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    .menu {
+      display: none;
+      color: white;
+      border: 0;
+      background: transparent;
+      font-size: 1.7rem;
+      cursor: pointer;
+    }
+
+    .slide {
+      min-height: 100vh;
+      padding: 135px 8% 90px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      background-position: center;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    .slide::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(15, 7, 4, .94),
+        rgba(15, 7, 4, .48)
+      );
+    }
+
+    .content {
+      width: 100%;
+      max-width: 1120px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .tag {
+      margin-bottom: 16px;
+      color: var(--gold);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-top: 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 23px;
+      color: var(--dark);
+      border: 1px solid var(--gold);
+      border-radius: 30px;
+      background: var(--gold);
+      text-decoration: none;
+      font-weight: 700;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    .btn:hover {
+      color: var(--gold);
+      background: transparent;
+      transform: translateY(-3px);
+    }
+
+    .outline {
+      color: var(--gold);
+      background: transparent;
+    }
+
+    #home {
+      background-image: url("https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=2000&q=85");
+    }
+
+    #history {
+      background-image: url("https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=2000&q=85");
+    }
+
+    #courses {
+      background-image: url("https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=2000&q=85");
+    }
+
+    #mentors {
+      background-image: url("https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=2000&q=85");
+    }
+
+    #events {
+      background-image: url("https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=2000&q=85");
+    }
+
+    #about {
+      background-image: url("https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&w=2000&q=85");
+    }
+
+    #contact {
+      background-image: url("https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=2000&q=85");
+    }
+
+    #account {
+      background-image: url("https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=2000&q=85");
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 25px;
+    }
+
+    .card,
+    form,
+    .account-box {
+      padding: 23px;
+      border: 1px solid rgba(232, 173, 75, .5);
+      border-radius: 18px;
+      background: var(--glass);
+      backdrop-filter: blur(8px);
+    }
+
+    .card {
+      transition: .3s;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+      border-color: var(--gold);
+    }
+
+    .card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 14px;
+    }
+
+    .price {
+      margin: 12px 0;
+      color: var(--gold);
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+
+    .instrument-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 22px 0;
+    }
+
+    .instrument-list span {
+      padding: 8px 14px;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      border-radius: 20px;
+      background: rgba(20, 8, 4, .7);
+    }
+
+    .event {
+      display: flex;
+      gap: 20px;
+      max-width: 700px;
+      margin: 14px 0;
+      padding: 17px;
+      border-left: 4px solid var(--gold);
+      border-radius: 10px;
+      background: var(--glass);
+    }
+
+    .date {
+      min-width: 70px;
+      color: var(--gold);
+      font-weight: bold;
+    }
+
+    form {
+      max-width: 650px;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 13px;
+      margin-bottom: 13px;
+      color: white;
+      border: 1px solid #866944;
+      border-radius: 8px;
+      outline: none;
+      background: rgba(255, 255, 255, .08);
+      font: inherit;
+    }
+
+    select option {
+      color: #111;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .account-box {
+      max-width: 720px;
+    }
+
+    .account-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .15);
+    }
+
+    .account-row strong {
+      color: var(--gold);
+    }
+
+    .next {
+      position: absolute;
+      right: 8%;
+      bottom: 28px;
+      z-index: 2;
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      padding: 24px;
+      color: var(--text);
+      text-align: center;
+      background: #100705;
+    }
+
+    @media (max-width: 850px) {
+      nav ul {
+        display: none;
+        position: absolute;
+        top: 68px;
+        right: 5%;
+        padding: 20px;
+        flex-direction: column;
+        border-radius: 12px;
+        background: #382018;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+
+      .menu {
+        display: block;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .slide {
+        background-attachment: scroll;
+      }
+
+      .account-row {
+        display: block;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a class="logo" href="#home">
+      Sree Sangeeth <span>Sampradaya</span>
+    </a>
+
+    <button class="menu" onclick="toggleMenu()" aria-label="Open menu">
+      ☰
+    </button>
+
+    <ul id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#history">History</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#mentors">Mentors</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#account">Account</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="home" class="slide">
+      <div class="content">
+        <div class="tag">Indian Classical Music Academy</div>
+        <h1>Sree Sangeeth Sampradaya</h1>
+
+        <p>
+          A sacred space for learning, preserving and celebrating the timeless
+          traditions of Hindustani and Carnatic classical music.
+        </p>
+
+        <div class="buttons">
+          <a class="btn" href="#courses">Explore Courses</a>
+          <a class="btn outline" href="#about">About Our Academy</a>
+        </div>
+      </div>
+
+      <a class="next" href="#history">Next: History →</a>
+    </section>
+
+    <section id="history" class="slide">
+      <div class="content">
+        <div class="tag">A timeless tradition</div>
+        <h2>History of Classical Music</h2>
+
+        <p>
+          Indian classical music has roots in the ancient Samaveda, where
+          sacred verses were sung through carefully defined notes and rhythms.
+        </p>
+
+        <p>
+          Over centuries, this tradition developed into Hindustani music in
+          North India and Carnatic music in South India.
+        </p>
+
+        <p>
+          The guru-shishya tradition passed knowledge from teacher to student
+          through practice, discipline and devotion.
+        </p>
+
+        <div class="instrument-list">
+          <span>Sitar</span>
+          <span>Veena</span>
+          <span>Tabla</span>
+          <span>Mridangam</span>
+          <span>Flute</span>
+          <span>Sarod</span>
+          <span>Tanpura</span>
+          <span>Violin</span>
+        </div>
+
+        <a class="btn" href="#courses">View Courses</a>
+      </div>
+
+      <a class="next" href="#courses">Next: Courses →</a>
+    </section>
+
+    <section id="courses" class="slide">
+      <div class="content">
+        <div class="tag">Learn with devotion</div>
+        <h2>Our Courses</h2>
+
+        <div class="cards">
+          <article class="card">
+            <h3>Hindustani Vocal</h3>
+            <p>Raga, alap, bandish, voice culture and performance training.</p>
+            <p><strong>Duration:</strong> 6 months</p>
+            <div class="price">₹12,000</div>
+            <a class="btn" href="#account">Register</a>
+          </article>
+
+          <article class="card">
+            <h3>Sitar Foundation</h3>
+            <p>Instrument technique, rhythm, raga interpretation and repertoire.</p>
+            <p><strong>Duration:</strong> 8 months</p>
+            <div class="price">₹18,000</div>
+            <a class="btn" href="#account">Register</a>
+          </article>
+
+          <article class="card">
+            <h3>Tabla &amp; Rhythm</h3>
+            <p>Tala, accompaniment, improvisation and traditional compositions.</p>
+            <p><strong>Duration:</strong> 4 months</p>
+            <div class="price">₹9,500</div>
+            <a class="btn" href="#account">Register</a>
+          </article>
+        </div>
+      </div>
+
+      <a class="next" href="#mentors">Next: Mentors →</a>
+    </section>
+
+    <section id="mentors" class="slide">
+      <div class="content">
+        <div class="tag">Learn from masters</div>
+        <h2>Our Mentors</h2>
+
+        <div class="cards">
+          <article class="card">
+            <img src="singer1.avif" alt="M. S. Subbulakshmi">
+            <h3>M. S. Subbulakshmi</h3>
+            <p>
+              <strong>Speciality:</strong> Carnatic vocal music, devotional
+              compositions and classical expression.
+            </p>
+            <p>
+              A legendary vocalist known for her powerful voice and devotion.
+            </p>
+          </article>
+
+          <article class="card">
+            <img src="singer2.jpg" alt="Lata Mangeshkar">
+            <h3>Lata Mangeshkar</h3>
+            <p>
+              <strong>Speciality:</strong> Classical vocal training, melody and
+              expressive singing.
+            </p>
+            <p>
+              An iconic singer celebrated for her voice and musical discipline.
+            </p>
+          </article>
+
+          <article class="card">
+            <img src="singer3.webp" alt="Guru Kavya Iyer">
+            <h3>Guru Kavya Iyer</h3>
+            <p>
+              <strong>Speciality:</strong> Mridangam, tala and Carnatic rhythm.
+            </p>
+            <p>
+              A specialist in rhythm training and ensemble performance.
+            </p>
+          </article>
+        </div>
+      </div>
+
+      <a class="next" href="#events">Next: Events →</a>
+    </section>
+
+    <section id="events" class="slide">
+      <div class="content">
+        <div class="tag">Experience music live</div>
+        <h2>Upcoming Events</h2>
+
+        <div class="event">
+          <div class="date">18<br>OCT</div>
+          <div>
+            <h3>Raga at Sunset</h3>
+            <p>Hindustani vocal recital · Bengaluru · 6:30 PM</p>
+          </div>
+        </div>
+
+        <div class="event">
+          <div class="date">02<br>NOV</div>
+          <div>
+            <h3>Rhythm of the South</h3>
+            <p>Carnatic instrumental concert · Chennai · 7:00 PM</p>
+          </div>
+        </div>
+
+        <div class="event">
+          <div class="date">15<br>NOV</div>
+          <div>
+            <h3>Young Maestros</h3>
+            <p>Student showcase · Hyderabad · 5:00 PM</p>
+          </div>
+        </div>
+
+        <a class="btn" href="#contact">Book Your Seat</a>
+      </div>
+
+      <a class="next" href="#about">Next: About Us →</a>
+    </section>
+
+    <section id="about" class="slide">
+      <div class="content">
+        <div class="tag">Our academy</div>
+        <h2>About Sree Sangeeth Sampradaya</h2>
+
+        <p>
+          Sree Sangeeth Sampradaya is dedicated to preserving Indian classical
+          music while making traditional learning accessible to a new generation.
+        </p>
+
+        <p>
+          Our speciality is personal guru-led training, authentic raga
+          education, practical performance experience and a welcoming community.
+        </p>
+
+        <div class="cards">
+          <div class="card">
+            <h3>Authentic Learning</h3>
+            <p>Traditional lessons guided by experienced mentors.</p>
+          </div>
+
+          <div class="card">
+            <h3>Performance Practice</h3>
+            <p>Regular concerts, workshops and student showcases.</p>
+          </div>
+
+          <div class="card">
+            <h3>Musical Community</h3>
+            <p>A supportive environment for every age and skill level.</p>
+          </div>
+        </div>
+      </div>
+
+      <a class="next" href="#contact">Next: Contact Us →</a>
+    </section>
+
+    <section id="contact" class="slide">
+      <div class="content">
+        <div class="tag">Start your musical journey</div>
+        <h2>Contact Us</h2>
+
+        <form id="contactForm">
+          <input type="text" placeholder="Your name" required>
+          <input type="email" placeholder="Your email" required>
+          <input type="text" placeholder="Subject" required>
+          <textarea placeholder="Your message" required></textarea>
+          <button class="btn" type="submit">Send Message</button>
+          <p id="contactStatus"></p>
+        </form>
+      </div>
+
+      <a class="next" href="#account">Next: My Account →</a>
+    </section>
+
+    <section id="account" class="slide">
+      <div class="content">
+        <div class="tag">Your musical journey</div>
+        <h2>My Account</h2>
+
+        <form id="accountForm">
+          <input id="studentName" type="text" placeholder="Full name" required>
+          <input id="studentEmail" type="email" placeholder="Email address" required>
+          <input id="studentPhone" type="tel" placeholder="Phone number">
+
+          <select id="registeredCourse" required>
+            <option value="">Choose a registered course</option>
+            <option>Hindustani Vocal</option>
+            <option>Sitar Foundation</option>
+            <option>Tabla &amp; Rhythm</option>
+          </select>
+
+          <input id="wishlist" type="text" placeholder="Wishlist courses">
+
+          <button class="btn" type="submit">Save Details</button>
+          <p id="accountStatus"></p>
+        </form>
+
+        <div class="account-box" id="savedDetails">
+          <h3>Saved Details</h3>
+
+          <div class="account-row">
+            <strong>Name</strong>
+            <span id="savedName"></span>
+          </div>
+
+          <div class="account-row">
+            <strong>Email</strong>
+            <span id="savedEmail"></span>
+          </div>
+
+          <div class="account-row">
+            <strong>Phone</strong>
+            <span id="savedPhone"></span>
+          </div>
+
+          <div class="account-row">
+            <strong>Registered Course</strong>
+            <span id="savedCourse"></span>
+          </div>
+
+          <div class="account-row">
+            <strong>Wishlist</strong>
+            <span id="savedWishlist"></span>
+          </div>
+        </div>
+      </div>
+
+      <a class="next" href="#home">Back to Home ↑</a>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Sree Sangeeth Sampradaya · Preserving tradition through music
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("show");
+    }
+
+    document.querySelectorAll("nav a").forEach(link => {
+      link.addEventListener("click", () => {
+        document.getElementById("navLinks").classList.remove("show");
+      });
+    });
+
+    const accountForm = document.getElementById("accountForm");
+
+    function displayAccountDetails(details) {
+      document.getElementById("savedDetails").style.display = "block";
+      document.getElementById("savedName").textContent = details.name;
+      document.getElementById("savedEmail").textContent = details.email;
+      document.getElementById("savedPhone").textContent =
+        details.phone || "Not provided";
+      document.getElementById("savedCourse").textContent = details.course;
+      document.getElementById("savedWishlist").textContent =
+        details.wishlist || "No wishlist courses";
+    }
+
+    accountForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const details = {
+        name: document.getElementById("studentName").value,
+        email: document.getElementById("studentEmail").value,
+        phone: document.getElementById("studentPhone").value,
+        course: document.getElementById("registeredCourse").value,
+        wishlist: document.getElementById("wishlist").value
+      };
+
+      localStorage.setItem(
+        "sreeSangeethAccount",
+        JSON.stringify(details)
+      );
+
+      displayAccountDetails(details);
+      document.getElementById("accountStatus").textContent =
+        "Your details were saved successfully.";
+    });
+
+    const savedAccount = localStorage.getItem("sreeSangeethAccount");
+
+    if (savedAccount) {
+      displayAccountDetails(JSON.parse(savedAccount));
+    }
+
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      document.getElementById("contactStatus").textContent =
+        "Thank you. Your message has been saved.";
+
+      this.reset();
+    });
+  </script>
+</body>
+</html>

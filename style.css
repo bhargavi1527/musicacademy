@@ -1,0 +1,79 @@
+body {
+  margin: 0;
+  font-family: 'Mukta', sans-serif;
+  background: #1c1c1c;
+  color: #f5f5dc;
+}
+
+header {
+  background: maroon;
+  color: gold;
+  padding: 15px;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: gold;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.panel {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.overlay {
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 40px;
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+  border-radius: 10px;
+}
+
+.next {
+  background: gold;
+  color: maroon;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.next:hover {
+  background: #f5f5dc;
+  color: #800000;
+}
+
+.carousel {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 20px;
+}
+
+.card {
+  background: #800000;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  min-width: 200px;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
